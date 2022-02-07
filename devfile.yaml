@@ -11,3 +11,8 @@ commands:
     exec:
       commandLine: pwd
       component: idea
+  - id: command-with-custom-working-dir
+    exec:
+      commandLine: pwd
+      workingDir: ${PROJECTOR_ASSEMBLY}
+      component: idea
