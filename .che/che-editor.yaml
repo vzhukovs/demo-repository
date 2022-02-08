@@ -10,7 +10,7 @@ inline:
           - name: projector-user
             path: /home/projector-user
         mountSources: true
-        memoryLimit: 6144Mi
+        memoryLimit: 5120Mi
         memoryRequest: 2048Mi
         cpuLimit: 2000m
         cpuRequest: 1500m
