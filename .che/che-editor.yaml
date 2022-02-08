@@ -5,7 +5,7 @@ inline:
   components:
     - name: intellij
       container:
-        image: 'registry.redhat.io/codeready-workspaces/idea-rhel8:2.16'
+        image: 'registry.redhat.io/codeready-workspaces/idea-rhel8@sha256:073d1a803faac261bae15642e66213a54cf2cb96429254c1138b0eda3f182105'
         volumeMounts:
           - name: projector-user
             path: /home/projector-user
