@@ -1,0 +1,18 @@
+schemaVersion: 2.0.0
+metadata:
+  name: che-21100-demo
+commands:
+  - id: command-with-working-dir
+    exec:
+      commandLine: pwd
+      workingDir: ${PROJECT_SOURCE}
+      component: idea
+  - id: command-without-working-dir
+    exec:
+      commandLine: pwd
+      component: idea
+  - id: command-with-custom-working-dir
+    exec:
+      commandLine: pwd
+      workingDir: ${PROJECTOR_ASSEMBLY_DIR}
+      component: idea
