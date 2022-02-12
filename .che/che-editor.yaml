@@ -54,7 +54,7 @@ inline:
       volume: { }
     - name: che-idea-injector
       container:
-        image: 'quay.io/vzhukovs/che-idea:che-21100'
+        image: 'quay.io/vzhukovs/che-idea:maximized'
         command: [ "/projector/entrypoint-init-container.sh" ]
         env:
           - name: PROJECTOR_VOLUME_MOUNT
