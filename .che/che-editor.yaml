@@ -1,16 +1,26 @@
 inline:
   schemaVersion: 2.1.0
   metadata:
-    name: IntelliJ IDEA Community Edition
+    name: che-incubator/che-idea/latest
+    displayName: IntelliJ IDEA Community Edition
+    description: IntelliJ IDEA Community running using Projector
+    icon: https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png
+    attributes:
+      publisher: che-incubator
+      version: 2022.1
+      title: IntelliJ IDEA Community as Editor for Eclipse Che
+      repository: 'https://github.com/che-incubator/jetbrains-editor-images'
+      firstPublicationDate: '2022-01-11'
+      skipMetaYaml: true
   commands:
     - id: init-container-command
       apply:
-        component: che-idea-injector
+        component: idea-rhel8-injector
   events:
     preStart:
       - init-container-command
   components:
-    - name: che-idea-runtime-description
+    - name: idea-rhel8
       container:
         image: 'quay.io/devspaces/udi-rhel8:3.1'
         command:
@@ -44,15 +54,15 @@ inline:
             secure: false
             protocol: http
       attributes:
-        app.kubernetes.io/component: che-idea-injector
-        app.kubernetes.io/part-of: che-idea.eclipse.org
+        app.kubernetes.io/component: idea-rhel8-injector
+        app.kubernetes.io/part-of: idea-rhel8.eclipse.org
     - name: projector-volume
       volume: { }
     - name: projector-configuration
       volume: { }
     - name: projector-java-configuration
       volume: { }
-    - name: che-idea-injector
+    - name: idea-rhel8-injector
       container:
         image: 'quay.io/devspaces/idea-rhel8:3.1'
         command: ["/projector/entrypoint-init-container.sh"]
